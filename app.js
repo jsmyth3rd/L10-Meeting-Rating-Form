@@ -102,7 +102,7 @@
   function renderForm() {
     formEl.innerHTML = `
       <div class="field">
-        <label class="field__label" for="parent">Parent Task <span class="req">*</span></label>
+        <label class="field__label" for="parent">Please Select the Meeting to Rate <span class="req">*</span></label>
         <select id="parent" class="select" required>
           <option value="">Select a task…</option>
           ${items.map((i) => `<option value="${escapeAttr(i.id)}">${escapeHtml(i.name)}</option>`).join("")}
@@ -111,7 +111,7 @@
       </div>
 
       <div class="field">
-        <label class="field__label" for="assignee">Assign To <span class="req">*</span></label>
+        <label class="field__label" for="assignee">Your Name <span class="req">*</span></label>
         <select id="assignee" class="select" required>
           <option value="">Select a person…</option>
           ${subscribers.map((s) => `<option value="${escapeAttr(s.id)}">${escapeHtml(s.name)}</option>`).join("")}
@@ -120,7 +120,7 @@
       </div>
 
       <fieldset class="field field--rating">
-        <legend class="field__label">Priority Rating <span class="req">*</span></legend>
+        <legend class="field__label">Meeting Rating (10 is best) <span class="req">*</span></legend>
         <div class="rating" role="radiogroup" aria-label="Priority rating 1 to 10">
           ${Array.from({ length: 10 }, (_, n) => {
             const v = n + 1;
